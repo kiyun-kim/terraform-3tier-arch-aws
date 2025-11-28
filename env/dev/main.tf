@@ -2,22 +2,22 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.0"
+      version = "~> 5.0"
     }
   }
 }
 
 provider "aws" {
   region = "ap-northeast-2"
+  profile = "admin"
 }
 
-
 module "dev" {
-  source = "../../"
+  source = "../../modules/aws-3tier"
 
   # prj
   project_name = var.project_name
-  enviroment = var.enviroment
+  environment = var.environment
 
   # VPC
   cidr_vpc = var.cidr_vpc
@@ -29,14 +29,15 @@ module "dev" {
   cidr_rds2c = var.cidr_rds2c
 
   # Public EC2
-
   bastion_instance_type = var.bastion_instance_type
   bastion_key_name      = var.bastion_key_name
   bastion_volume_size   = var.bastion_volume_size
 
   # Private EC2
-  
-  Private_EC2_instance_type = var.Private_EC2_instance_type
-  Private_EC2_key_name      = var.Private_EC2_key_name
-  Private_EC2_volume_size   = var.Private_EC2_volume_size
+  private_ec2_instance_type = var.private_ec2_instance_type
+  private_ec2_key_name      = var.private_ec2_key_name
+  private_ec2_volume_size   = var.private_ec2_volume_size
+
+  # RDS
+  db_password = var.db_password
 }
