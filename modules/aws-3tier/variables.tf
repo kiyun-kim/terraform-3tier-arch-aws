@@ -1,6 +1,6 @@
 # prj
 variable "project_name" {
-  default = "3tier"
+  default = "bamboo"
   type    = string
 }
 variable "environment" {
@@ -39,7 +39,7 @@ variable "bastion_instance_type" {
   default = "t3.micro"
 }
 variable "bastion_key_name" {
-  default = "bastion"
+  default = "ec2-ssh-key"
 }
 variable "bastion_volume_size" {
   default = "10"
@@ -53,7 +53,7 @@ variable "private_ec2_instance_type" {
   default = "t3.medium"
 }
 variable "private_ec2_key_name" {
-  default = "bastion"
+  default = "ec2-ssh-key"
 }
 variable "private_ec2_volume_size" {
   default = "10"

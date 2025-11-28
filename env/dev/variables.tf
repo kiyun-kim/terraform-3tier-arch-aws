@@ -1,7 +1,7 @@
 # prj
 variable "project_name" { default = "bamboo" } 
 variable "environment" { default = "ec2-test" }
-variable "key_pair" { default = "bastion" }
+variable "key_pair" { default = "ec2-ssh-key" }
 
 # VPC
 variable "cidr_vpc"        { default = "192.168.0.0/16"}
@@ -21,7 +21,7 @@ variable "bastion_volume_size"   { default = 10 }
 
 # Private EC2
 variable "private_ec2_instance_type" { default = "t3.medium" }
-variable "private_ec2_key_name"      { default = "bastion" }
+variable "private_ec2_key_name"      { default = "ec2-ssh-key" }
 variable "private_ec2_volume_size"   { default = 10 }
 
 # RDS
